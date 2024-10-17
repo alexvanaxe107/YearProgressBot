@@ -38,13 +38,10 @@ function DISPLAY {
 }
 
 function MAIN {
-  LENGTH=""
-  if [ -z "${LENGTH}" ]; then
-      LENGTH=100
-  fi
-  WORKDIR=""
+  LENGTH="100"
+  WORKDIR="."
   if [ -z "${WORKDIR}" ]; then
-      WORKDIR="."
+      WORKDIR=""
   fi
 
 	local BAR_NOW;
