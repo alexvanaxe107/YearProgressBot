@@ -38,6 +38,15 @@ function DISPLAY {
 }
 
 function MAIN {
+  LENGTH=""
+  if [ -z "${LENGTH}" ]; then
+      LENGTH=100
+  fi
+  WORKDIR=""
+  if [ -z "${WORKDIR}" ]; then
+      WORKDIR="."
+  fi
+
 	local BAR_NOW;
 	local BAR="";
 	BAR_NOW=$(DISPLAY);
