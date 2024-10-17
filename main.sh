@@ -17,8 +17,7 @@ function GET_PERCENTAGE {
 	elif [ $((CURRENT_YEAR % 4)) -eq 0 ]; then
 		local TOTAL_DAYS=366;
 	else
-		local TOTAL_DAYS=365;
-	fi
+		local TOTAL_DAYS=365; fi
 	CURRENT_DAY=$(echo "$(date +%j) + 0" | bc);
 	echo $((CURRENT_DAY*100/TOTAL_DAYS));
 }
@@ -45,16 +44,14 @@ function MAIN {
 	if [ -f "$WORKDIR"/bar ]; then
 		BAR=$(cat "$WORKDIR"/bar);
 	fi
-	echo ">>> Bot started.";
+  echo $BAR_NOW
+  exit 0;
 	while true; do
 		BAR_NOW=$(DISPLAY);
 		if [ "$BAR" == "$BAR_NOW" ]; then
 			sleep 100;
 			continue;
 		fi
-		curl -X POST \
-			"https://api.telegram.org/bot${API_TOKEN}/sendMessage" \
-			-d "chat_id=${CHAT_ID}&text=${BAR_NOW}";
 		echo "$BAR_NOW" > "$WORKDIR"/bar;
 		BAR="$BAR_NOW";
 	done
