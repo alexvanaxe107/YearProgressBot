@@ -38,7 +38,7 @@ function DISPLAY {
 }
 
 function MAIN {
-  LENGTH="100"
+  LENGTH="50"
   WORKDIR="."
   if [ -z "${WORKDIR}" ]; then
       WORKDIR=""
