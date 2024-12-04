@@ -23,8 +23,6 @@
     in
 
     {
-
-
       # Provide some binary packages for selected system types.
       packages = forAllSystems (system:
           with nixpkgsFor.${system};
